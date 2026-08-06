@@ -1,0 +1,148 @@
+# ==========================================================
+# Tree output files
+# ==========================================================
+tree.txt
+tree-*.txt
+*.tree
+
+
+# ==========================================================
+# Flutter / Dart
+# ==========================================================
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/build/
+**/coverage/
+**/doc/api/
+
+# Flutter generated / ephemeral
+**/ephemeral/
+**/.plugin_symlinks/
+**/.symlinks/
+
+**/Flutter/Generated.xcconfig
+**/Flutter/flutter_export_environment.sh
+**/Flutter/app.flx
+**/Flutter/app.zip
+**/Flutter/Flutter.podspec
+
+# If using FVM
+**/.fvm/
+
+
+# ==========================================================
+# Android
+# ==========================================================
+**/.gradle/
+**/.kotlin/
+**/.cxx/
+**/local.properties
+
+# Usually wrapper jar should not be committed if already generated
+**/gradle-wrapper.jar
+
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+
+**/*.keystore
+**/*.jks
+
+**/*.apk
+**/*.aab
+
+
+# ==========================================================
+# iOS / macOS
+# ==========================================================
+**/Pods/
+**/xcuserdata/
+**/DerivedData/
+
+**/*.moved-aside
+**/*.pbxuser
+!default.pbxuser
+**/*.mode1v3
+!default.mode1v3
+**/*.mode2v3
+!default.mode2v3
+**/*.perspectivev3
+!default.perspectivev3
+
+**/ios/**/GeneratedPluginRegistrant.h
+**/ios/**/GeneratedPluginRegistrant.m
+
+**/*.ipa
+**/*.dSYM.zip
+**/*.dSYM
+
+
+# ==========================================================
+# Windows / Linux / CMake build artifacts
+# ==========================================================
+**/CMakeFiles/
+**/CMakeCache.txt
+**/CMakeScripts/
+**/cmake_install.cmake
+**/install_manifest.txt
+**/compile_commands.json
+
+**/*.tlog
+**/*.pdb
+**/*.ilk
+**/*.obj
+**/*.exp
+**/*.idb
+
+**/obj/
+**/bin/
+
+
+# ==========================================================
+# Go server
+# ==========================================================
+server/bin/
+server/dist/
+
+server/server
+server/server.exe
+
+server/cmd/server/server
+server/cmd/server/server.exe
+
+server/**/*.exe
+
+*.test
+*.out
+
+
+# ==========================================================
+# IDE / Editor
+# ==========================================================
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+
+# ==========================================================
+# OS files
+# ==========================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==========================================================
+# Env / logs
+# ==========================================================
+.env
+.env.*
+!.env.example
+
+logs/
+*.log

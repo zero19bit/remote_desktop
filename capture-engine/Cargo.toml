@@ -1,0 +1,11 @@
+[package]
+name = "capture-engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+scrap = "0.5"
+chrono = "0.4"
+
+[dependencies.ffmpeg-next]
+version = "7.1"

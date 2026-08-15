@@ -1,0 +1,13 @@
+/home/oziro/Documents/remote_desktop/capture-engine/target/debug/deps/scrap-dd949153d6b237b4.d: /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/lib.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/capturer.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/display.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/ffi.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/iter.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/server.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/x11.rs
+
+/home/oziro/Documents/remote_desktop/capture-engine/target/debug/deps/libscrap-dd949153d6b237b4.rmeta: /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/lib.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/capturer.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/display.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/ffi.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/iter.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/server.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/x11.rs
+
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/lib.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/mod.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/capturer.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/display.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/ffi.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/iter.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/x11/server.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/mod.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/scrap-0.5.0/src/common/x11.rs:

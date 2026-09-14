@@ -1,0 +1,14 @@
+/home/oziro/Documents/remote_desktop/capture-engine/target/debug/deps/ffmpeg_sys_next-476a62c03a1970c3.d: /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/lib.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/macros.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/error.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/util.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/rational.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/pixfmt.rs /home/oziro/Documents/remote_desktop/capture-engine/target/debug/build/ffmpeg-sys-next-3583d35a966b3466/out/bindings.rs
+
+/home/oziro/Documents/remote_desktop/capture-engine/target/debug/deps/libffmpeg_sys_next-476a62c03a1970c3.rmeta: /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/lib.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/mod.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/macros.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/error.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/util.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/rational.rs /home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/pixfmt.rs /home/oziro/Documents/remote_desktop/capture-engine/target/debug/build/ffmpeg-sys-next-3583d35a966b3466/out/bindings.rs
+
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/lib.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/mod.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/macros.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/error.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/util.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/rational.rs:
+/home/oziro/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ffmpeg-sys-next-7.1.3/src/avutil/pixfmt.rs:
+/home/oziro/Documents/remote_desktop/capture-engine/target/debug/build/ffmpeg-sys-next-3583d35a966b3466/out/bindings.rs:
+
+# env-dep:OUT_DIR=/home/oziro/Documents/remote_desktop/capture-engine/target/debug/build/ffmpeg-sys-next-3583d35a966b3466/out

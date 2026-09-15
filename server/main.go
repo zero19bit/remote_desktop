@@ -1,15 +1,20 @@
 package main
 
 import (
+	"encoding/binary"
 	"encoding/json"
+	"io"
 	"log"
+	"net"
 	"net/http"
-	"runtime"
 	"os/exec"
+	"runtime"
+	"time"
 
 	"github.com/go-vgo/robotgo"
 	"github.com/gorilla/websocket"
 	"github.com/pion/webrtc/v4"
+	"github.com/pion/webrtc/v4/pkg/media"
 )
 
 type Payload struct {
@@ -37,6 +42,40 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
+}
+
+func connectToRust(VideoTrack *webrtc.TrackLocalStaticSample){
+	conn, err := net.Dial("tcp", "127.0.0.1:9000")
+	if err != nil {
+		log.Println("❌ Failed to connect to Rust:", err)
+		return
+	}
+	log.Println("✅ Connected to Rust media server")
+	defer conn.Close()
+
+	for {
+		var length uint32
+		err := binary.Read(conn, binary.BigEndian, &length)
+		if err != nil {
+			log.Println("❌ Failed to read length:", err)
+			return
+		}
+
+		data := make([]byte, length)
+		_, err = io.ReadFull(conn, data)
+		if err != nil {
+			log.Println("❌ Failed to read data:", err)
+			return
+		}
+		err = VideoTrack.WriteSample(media.Sample{
+			Data: data,
+			Duration: 33 * time.Millisecond,
+		})
+		if err != nil {
+			log.Println("WriteSample err : ", err)
+			return
+		}
+	}
 }
 
 func handleSwipe(direction string) {
@@ -107,6 +146,23 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	defer peerConnection.Close()
+
+	VideoTrack, err := webrtc.NewTrackLocalStaticSample(
+		webrtc.RTPCodecCapability{MimeType: webrtc.MimeTypeH264},
+		"video",
+		"screen",
+	)
+	if err != nil{
+		log.Println("❌ track:", err)
+		return
+	}
+
+	_, err = peerConnection.AddTrack(VideoTrack)
+	if err != nil {
+		log.Println("❌ addtrack:", err)
+		return
+	}
+	go connectToRust(VideoTrack)
 
 	peerConnection.OnICEConnectionStateChange(
 		func(state webrtc.ICEConnectionState) {
@@ -430,6 +486,8 @@ func main() {
 	http.HandleFunc("/ws", wsHandler)
 
 	log.Println("Server started on :8080")
+
+	//go connectToRust()
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

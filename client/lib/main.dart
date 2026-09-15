@@ -21,7 +21,8 @@ class RemoteDesktop extends StatefulWidget {
 
 class _RemoteDesktopState extends State<RemoteDesktop> {
   final WebSocketService webSocket = WebSocketService();
-  
+  final RTCVideoRenderer remoteRenderer = RTCVideoRenderer();
+
   RTCPeerConnection? peerConnection;
   RTCDataChannel? dataChannel;
   StreamSubscription? socketSubscription;
@@ -35,6 +36,8 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
   bool drag = false;
   bool scroll = false;
   bool connected = false;
+  bool videoTrackReceived = false;
+  bool firstFrameRendered = false;
 
   double sensitivity = 2.0;
   static const double minSensitivity = 0.5;
@@ -44,6 +47,27 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
   final yController = TextEditingController();
   final keyController = TextEditingController();
 
+  @override
+  void initState(){
+    super.initState();
+    initRemoteRenderer();
+  }
+
+  Future<void> initRemoteRenderer() async {
+    await remoteRenderer.initialize();
+
+    remoteRenderer.onFirstFrameRendered = () {
+      debugPrint("🎉 FIRST VIDEO FRAME RENDERED");
+
+      if (!mounted) return;
+
+      setState(() {
+        firstFrameRendered = true;
+      });
+    };
+
+    debugPrint("✅ RTCVideoRenderer initialized");
+  }
 
   Future<void> createRtcPeerConnection() async {
   
@@ -62,6 +86,31 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
   
     debugPrint("PeerConnection Created");
   
+    await peerConnection!.addTransceiver(
+      kind: RTCRtpMediaType.RTCRtpMediaTypeVideo,
+      init: RTCRtpTransceiverInit(
+        direction: TransceiverDirection.RecvOnly,
+      ),
+    );
+    debugPrint("🎥 Video recvonly transceiver added");
+
+    peerConnection!.onTrack = (RTCTrackEvent event){
+      debugPrint("🎥 onTrack fired");
+      debugPrint("Track kind: ${event.track.kind}");
+      debugPrint("Streams: ${event.streams.length}");
+
+      if (event.track.kind == "video" && event.streams.isNotEmpty) {
+        remoteRenderer.srcObject = event.streams.first;
+
+        if (!mounted) return;
+
+        setState(() {
+          videoTrackReceived = true;
+        });
+
+        debugPrint("✅ Remote video attached");
+      }
+    };
   
     peerConnection!.onIceCandidate = (candidate) {
     
@@ -121,7 +170,7 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
     try {
 
       await webSocket.connect(
-        "ws://192.168.1.101:8080/ws",
+        "ws://localhost:8080/ws",
       );
 
       await createRtcPeerConnection();
@@ -301,6 +350,8 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
     peerConnection?.close();
     dataChannel = null;
     peerConnection = null;
+    remoteRenderer.srcObject = null;
+    remoteRenderer.dispose();
     xController.dispose();
     yController.dispose();
     keyController.dispose();
@@ -317,7 +368,8 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
         appBar: AppBar(
           title: const Text("Remote Desktop"),
         ),
-        body: Padding(
+        body: SingleChildScrollView(
+          child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
@@ -352,6 +404,37 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
               ),
 
               const SizedBox(height: 20),
+
+              Container(
+                width: double.infinity,
+                height: 240,
+                color: Colors.black,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    RTCVideoView(
+                      remoteRenderer,
+                      objectFit:
+                      RTCVideoViewObjectFit.RTCVideoViewObjectFitContain,
+                    ),
+
+                    if (!videoTrackReceived)
+                      const Center(
+                        child: Text(
+                          "Waiting for remote desktop...",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          ),
+                      ),
+                    if (videoTrackReceived && !firstFrameRendered)
+                      const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                  ],
+                ),
+              ),
 
               //touchpad
               SizedBox(
@@ -696,7 +779,7 @@ class _RemoteDesktopState extends State<RemoteDesktop> {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }
